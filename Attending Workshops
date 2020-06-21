@@ -11,7 +11,7 @@ struct Available_Workshops {
     int n;
     Workshop* a;
 };
-//Implement the functions initialize and CalculateMaxWorkshops
+
 bool operator<(Workshop& a, Workshop& b) {
     return a.endTime < b.endTime;
 }
