@@ -11,28 +11,28 @@ void createMap(int &n, string pretag) {
     getline(cin, line);
     
     int i=1;
-    if(line[i]=='/') {           // found closing tag
+    if(line[i]=='/') {           
         while(line[i]!='>') i++;
-        if(pretag.size()>(i-2))        // update tag
+        if(pretag.size()>(i-2))       
             tag = pretag.substr(0,pretag.size()-i+1);
         else
             tag = "";
     }
-    else {                       // found opening tag
+    else {                       
         while(line[i]!=' ' && line[i]!='>') i++;
-        tag = line.substr(1,i-1);    // update tag
+        tag = line.substr(1,i-1);  
         if(pretag!="") tag = pretag + "." + tag;
         
         int j;
-        while(line[i]!='>') { // go through attributes
+        while(line[i]!='>') { 
             j = ++i;
             while(line[i]!=' ') i++;
-            attr = line.substr(j,i-j);    // attribute name
+            attr = line.substr(j,i-j);    
             
             while(line[i]!='\"') i++;
             j = ++i;
             while(line[i]!='\"') i++;
-            value = line.substr(j,i-j);    // attribute value
+            value = line.substr(j,i-j);   
             i+= 1;
             
             tagMap[tag + "~" + attr] = value;
